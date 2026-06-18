@@ -4,23 +4,50 @@ Protótipo web de plataforma para gestão de conformidade com a LGPD, voltado pa
 
 ---
 
+## Link
+
+🔗 [https://atria-coral.vercel.app/](https://atria-coral.vercel.app/)
+
+---
+
+## Integrantes
+
+- Andre Avelino
+- Augusto Malheiros
+- Brenda Luana
+- Caio Mathews
+- Carolina Maria
+- Eduardo Albuquerque
+- Gabriel Miranda
+- Guilherme Melo
+- Rafael Padilha
+- Raul Soares
+- Rodrigo Jose
+
+---
+
 ## Telas
 
 ### Home
+
 Visão geral do estado operacional. Contém:
+
 - **Quadro de avisos** com alertas de solicitações pendentes (nome, e-mail, tipo e prazo)
 - **Busca rápida** de titular que redireciona para a CAT
 - **Atalhos de relatórios** (ESG, ANPD, Diferencial Comercial)
 - **Calendário interativo** com navegação por mês
 
 ### CAT — Central de Atendimento ao Titular
+
 Fluxo principal de atendimento a solicitações de dados. Possui duas sub-views:
 
 **Lista de clientes**
+
 - Busca por CPF ou e-mail
 - Lista de titulares com dados básicos e botão de acesso ao perfil
 
 **Perfil do cliente** (detalhe)
+
 - Banner com dados cadastrais (nome, CPF, telefone, CEP, e-mail, gastos totais)
 - Lista de plataformas onde os dados do titular foram detectados (WhatsApp, Instagram, TikTok, Nuvemshop, etc.)
 - Histórico de interações com o cliente
@@ -28,16 +55,19 @@ Fluxo principal de atendimento a solicitações de dados. Possui duas sub-views:
 - Após a purga: área de confirmação com botão para baixar o recibo em PDF
 
 ### Riscos e Prazos
+
 - Lista filtrável de alertas ativos com prazos
 - **Status de Exposição ANPD** — indicador de conformidade com opção de expandir detalhes
 - **Riscos de Marketplace** — painel verde com status de pendências em plataformas como Mercado Livre
 
 ### Hub de Conexões
+
 - Lista de plataformas disponíveis para conectar: WhatsApp, Instagram, TikTok, Nuvemshop, Mercado Livre
 - Clique no card simula autenticação via API com feedback visual (⏳ → ✅)
 - Botão para adicionar nova plataforma
 
 ### ESG - Painel de Evidências
+
 - Cabeçalho com geração de Relatório de Governança (Pilar G)
 - Tabela de histórico de purgas realizadas com dados mascarados, plataformas varridas e status de certificação
 - Novas entradas são inseridas dinamicamente após cada purga concluída
