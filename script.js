@@ -22,6 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* MAPEAMENTO DA SIMULAÇÃO DE PESQUISA LOCAL NA HOME */
+    const homeSearchInput = document.getElementById('home-search-input');
+    const homeSearchResults = document.getElementById('home-search-results');
+    
+    if (homeSearchInput && homeSearchResults) {
+        homeSearchInput.addEventListener('focus', () => {
+            homeSearchResults.classList.remove('hidden');
+        });
+
+        homeSearchInput.addEventListener('input', (e) => {
+            if (e.target.value.trim().length > 0) {
+                homeSearchResults.classList.remove('hidden');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!homeSearchInput.contains(e.target) && !homeSearchResults.contains(e.target)) {
+                homeSearchResults.classList.add('hidden');
+            }
+        });
+    }
+
     renderizarCalendario();
 });
 
@@ -82,6 +104,7 @@ function mudarMes(direcao) {
     renderizarCalendario();
 }
 
+/* FUNÇÃO ORIGINAL DE CONEXÃO RESTAURADA */
 function conectarApp(card, nomeApp) {
     const btn = card.querySelector('.btn-connect');
     if (btn.classList.contains('connected')) return;
@@ -90,30 +113,25 @@ function conectarApp(card, nomeApp) {
     card.style.opacity = '0.7';
 
     setTimeout(() => {
+        card.classList.add('connected-style'); // Aplica a borda verde do figma
         btn.classList.add('connected');
-        btn.innerText = `✅ Conectado`;
+        btn.innerText = `✓ Conectado`;
         card.style.opacity = '1';
-        card.style.borderColor = '#4caf50';
+        card.style.borderColor = '#418233'; // Força a cor verde institucional
     }, 1500);
 }
 
-/* --- FUNÇÃO CORRIGIDA PARA REDIRECIONAR DIRETO AO PERFIL --- */
 function irParaPerfilCliente() {
     const catBtn = document.querySelector('.nav-btn[data-target="cat"]');
     if (catBtn) {
-        catBtn.click(); // Altera a aba ativa e redefine a navegação interna
-        abrirCATDetalhe(); // Sobrescreve o reset forçando a abertura direta do perfil do cliente
+        catBtn.click(); 
+        abrirCATDetalhe(); 
     }
 }
 
 function irParaCAT() {
     const catBtn = document.querySelector('.nav-btn[data-target="cat"]');
     if (catBtn) catBtn.click();
-}
-
-// Mantido para a barra de pesquisa genérica da home se necessário
-function irParaCATComBusca() {
-    irParaCAT();
 }
 
 function toggleExpandir(event, containerId) {
@@ -183,11 +201,11 @@ function iniciarPurgaUnificada() {
 }
 
 function baixarPDF() {
-    alert("Iniciando o download do recibo criptografado (PDF) contendo os logs da operação para fins de conformidade com a ANPD.");
+    alert("Iniciando o download do recibo criptografado (PDF).");
 }
 
 function gerarRelatorioESG() {
-    alert("Compilando dados de governança (Pilar G)... O download do Relatório Executivo começará em instantes.");
+    alert("Compilando dados de governança (Pilar G)...");
 }
 
 function inserirEvidenciaESG() {

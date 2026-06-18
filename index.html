@@ -67,7 +67,32 @@
                     <h3 class="mb-1">Central de atendimento ao titular</h3>
                     <div class="search-box-standalone">
                         <span class="search-icon">🔍</span>
-                        <input type="text" placeholder="Buscar titular..." onfocus="irParaCAT()">
+                        <input type="text" id="home-search-input" placeholder="Buscar titular...">
+                    </div>
+                    
+                    <div id="home-search-results" class="clients-list-figma mt-1 hidden">
+                        <div class="client-white-row">
+                            <div class="client-info-group">
+                                <div class="client-circle-placeholder"></div>
+                                <div class="client-text-block">
+                                    <strong>Roberto Lucas Almeida</strong>
+                                    <span>CPF: xxx.xxx.xxx-xx</span>
+                                    <span>E-mail: betinhokiller12@gmail.com</span>
+                                </div>
+                            </div>
+                            <button class="btn-row-visualizar" onclick="irParaPerfilCliente()">Visualizar</button>
+                        </div>
+                        <div class="client-white-row">
+                            <div class="client-info-group">
+                                <div class="client-circle-placeholder"></div>
+                                <div class="client-text-block">
+                                    <strong>Roberto Latache</strong>
+                                    <span>CPF: xxx.xxx.xxx-xx</span>
+                                    <span>E-mail: euvousermusico1@gmail.com</span>
+                                </div>
+                            </div>
+                            <button class="btn-row-visualizar" onclick="irParaPerfilCliente()">Visualizar</button>
+                        </div>
                     </div>
                 </div>
 
@@ -103,7 +128,6 @@
 
             <section id="riscos" class="view-section hidden">
                 <h1 class="page-title">Riscos e Prazos</h1>
-                
                 <div class="panel grey-panel mb-2">
                     <div class="search-container">
                         <div class="search-box">
@@ -114,34 +138,6 @@
                     </div>
                     
                     <div class="alerts-container">
-                        <div class="alert-card orange">
-                            <div class="alert-icon-circle">!</div>
-                            <div class="alert-avatar"></div>
-                            <div class="alert-details">
-                                <strong>Nome do Cliente</strong>
-                                <span>E-mail: Clientechato@gmail.com</span>
-                            </div>
-                            <div class="alert-divider"></div>
-                            <div class="alert-meta">
-                                <span class="meta-label">Tipo de Solicitação</span>
-                                <span class="meta-timer">Prazo: xx dias</span>
-                            </div>
-                            <button class="btn-outline-white" onclick="irParaPerfilCliente()">Visualizar</button>
-                        </div>
-                        <div class="alert-card orange">
-                            <div class="alert-icon-circle">!</div>
-                            <div class="alert-avatar"></div>
-                            <div class="alert-details">
-                                <strong>Nome do Cliente</strong>
-                                <span>E-mail: Clientechato@gmail.com</span>
-                            </div>
-                            <div class="alert-divider"></div>
-                            <div class="alert-meta">
-                                <span class="meta-label">Tipo de Solicitação</span>
-                                <span class="meta-timer">Prazo: xx dias</span>
-                            </div>
-                            <button class="btn-outline-white" onclick="irParaPerfilCliente()">Visualizar</button>
-                        </div>
                         <div class="alert-card orange">
                             <div class="alert-icon-circle">!</div>
                             <div class="alert-avatar"></div>
@@ -170,9 +166,6 @@
                                 <div class="checkmark-circle-green">✓</div>
                                 <span class="compliance-link-text">Ver Relatório</span>
                             </div>
-                            <div class="extra-data hidden mt-1">
-                                <p class="text-sm">Varredura de vulnerabilidade activa sem incidentes.</p>
-                            </div>
                         </div>
                     </div>
                     
@@ -185,9 +178,6 @@
                             <div class="compliance-circle-container">
                                 <div class="checkmark-circle-translucent">✓</div>
                                 <p class="compliance-msg-text">Nenhuma pendência de dados identificada.</p>
-                            </div>
-                            <div class="extra-data hidden mt-1">
-                                <p class="text-sm text-white-opacity">Sincronização regular com APIs do Mercado Livre.</p>
                             </div>
                         </div>
                     </div>
@@ -208,28 +198,6 @@
                     <div class="panel grey-panel">
                         <h3 class="mb-2">Lista Clientes</h3>
                         <div class="clients-list-figma">
-                            <div class="client-white-row">
-                                <div class="client-info-group">
-                                    <div class="client-circle-placeholder"></div>
-                                    <div class="client-text-block">
-                                        <strong>Nome do Cliente</strong>
-                                        <span>CPF: xxx.xxx.xxx-xx</span>
-                                        <span>E-mail: Clientechato@gmail.com</span>
-                                    </div>
-                                </div>
-                                <button class="btn-row-visualizar" onclick="abrirCATDetalhe()">Visualizar</button>
-                            </div>
-                            <div class="client-white-row">
-                                <div class="client-info-group">
-                                    <div class="client-circle-placeholder"></div>
-                                    <div class="client-text-block">
-                                        <strong>Nome do Cliente</strong>
-                                        <span>CPF: xxx.xxx.xxx-xx</span>
-                                        <span>E-mail: Clientechato@gmail.com</span>
-                                    </div>
-                                </div>
-                                <button class="btn-row-visualizar" onclick="abrirCATDetalhe()">Visualizar</button>
-                            </div>
                             <div class="client-white-row">
                                 <div class="client-info-group">
                                     <div class="client-circle-placeholder"></div>
@@ -269,27 +237,9 @@
                         <div class="panel grey-panel">
                             <h3 class="mb-1">Dados Sensíveis do Cliente</h3>
                             <p class="text-sm mb-2">Foram detectados dados nas seguintes plataformas:</p>
-                            
-                            <div class="platform-row">
-                                <span>💬 Whatsapp</span>
-                                <span class="action-arrow">➔</span>
-                            </div>
-                            <div class="platform-row">
-                                <span>📸 Instagram</span>
-                                <span class="action-arrow">➔</span>
-                            </div>
-                            <div class="platform-row">
-                                <span>🎵 Tiktok</span>
-                                <span class="action-arrow">➔</span>
-                            </div>
-                            <div class="platform-row">
-                                <span>🛍️ Nuvemshop</span>
-                                <span class="action-arrow">➔</span>
-                            </div>
-                            <div class="platform-row">
-                                <span>🔄 Placeholder</span>
-                                <span class="action-arrow">➔</span>
-                            </div>
+                            <div class="platform-row"><span>💬 Whatsapp</span><span class="action-arrow">➔</span></div>
+                            <div class="platform-row"><span>📸 Instagram</span><span class="action-arrow">➔</span></div>
+                            <div class="platform-row"><span>🎵 Tiktok</span><span class="action-arrow">➔</span></div>
                         </div>
 
                         <div class="panel grey-panel flex-between-column">
@@ -299,16 +249,7 @@
                                     <strong>Categoria de Interação</strong>
                                     <span>Data: dd / mm / yyyy</span>
                                 </div>
-                                <div class="interaction-card mb-1">
-                                    <strong>Categoria de Interação</strong>
-                                    <span>Data: dd / mm / yyyy</span>
-                                </div>
-                                <div class="interaction-card mb-1">
-                                    <strong>Categoria de Interação</strong>
-                                    <span>Data: dd / mm / yyyy</span>
-                                </div>
                             </div>
-
                             <div class="width-full mt-2">
                                 <button class="btn-danger-large-figma" id="btn-purga" onclick="iniciarPurgaUnificada()">Deletar todos os dados</button>
                                 <div id="receipt-area" class="hidden mt-1">
@@ -326,22 +267,26 @@
                 <p class="subtitle">Plataformas conectadas ao seu comércio</p>
                 
                 <div class="panel grey-panel connected-platforms-wrapper">
-                    <div class="platform-row connection-card" onclick="conectarApp(this, 'Whatsapp')">
+                    <div class="platform-row connection-card connected-style" onclick="conectarApp(this, 'Whatsapp')">
                         <span>💬 Whatsapp</span>
-                        <span class="action-arrow btn-connect">➔</span>
+                        <span class="action-arrow btn-connect connected">✓ Conectado</span>
                     </div>
-                    <div class="platform-row connection-card" onclick="conectarApp(this, 'Instagram')">
+                    
+                    <div class="platform-row connection-card connected-style" onclick="conectarApp(this, 'Instagram')">
                         <span>📸 Instagram</span>
-                        <span class="action-arrow btn-connect">➔</span>
+                        <span class="action-arrow btn-connect connected">✓ Conectado</span>
                     </div>
+                    
                     <div class="platform-row connection-card" onclick="conectarApp(this, 'TikTok')">
                         <span>🎵 TikTok</span>
                         <span class="action-arrow btn-connect">➔</span>
                     </div>
+                    
                     <div class="platform-row connection-card" onclick="conectarApp(this, 'Nuvemshop')">
                         <span>🛍️ Nuvemshop</span>
                         <span class="action-arrow btn-connect">➔</span>
                     </div>
+                    
                     <div class="platform-row connection-card" onclick="conectarApp(this, 'Mercado Livre')">
                         <span>📦 Mercado Livre</span>
                         <span class="action-arrow btn-connect">➔</span>
@@ -363,28 +308,6 @@
                         </div>
                         <button class="btn-report" style="background:#a192b3; color:white;" onclick="gerarRelatorioESG()">Gerar Relatório</button>
                     </div>
-                </div>
-
-                <div class="panel grey-panel">
-                    <h3 class="mb-2">Histórico de Purga e Anonimização</h3>
-                    <table class="esg-table">
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Titular (Mascarado)</th>
-                                <th>Sistemas Varredura</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="esg-history">
-                            <tr>
-                                <td>15/10/2023</td>
-                                <td>***.456.789-**</td>
-                                <td>WhatsApp, RD Station</td>
-                                <td><span class="badge-success">Certificado</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </section>
 
