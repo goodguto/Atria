@@ -1,4 +1,4 @@
-![Logo](img/logo.png)
+![Logo](img/Logo.png)
 
 Protótipo web de plataforma para gestão de conformidade com a LGPD, voltado para lojistas de e-commerce. Permite centralizar dados de clientes espalhados em múltiplas plataformas e responder a solicitações de exclusão em poucos cliques.
 
