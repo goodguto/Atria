@@ -131,6 +131,8 @@ Prefixo `/api`, JSON em português.
 - **Controllers** (`@WebMvcTest`): busca, exclusão (201/400/422), conectar/desconectar, status de alerta, download de PDF e formato dos erros 404/422.
 - **Integração** (`AtriaApplicationIntegracaoTest`): sobe a aplicação com o seed e chama todos os endpoints de consulta e os três PDFs.
 
+Para rodar só uma classe de teste: `mvn test -Dtest=AlertaServiceTest`.
+
 ## Como migrar para PostgreSQL
 
 A persistência está atrás de interfaces com nomes do Spring Data, então a troca é quase mecânica:
