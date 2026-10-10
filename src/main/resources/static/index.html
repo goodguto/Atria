@@ -3,132 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atria - Gestão de Privacidade</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Atria – Governança de dados</title>
+    <link rel="icon" href="/img/Logo.png">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
 </head>
 <body>
-<div class="app-layout">
+<div class="app">
     <aside class="sidebar">
-        <div class="brand"><img src="/img/Logo.png" alt="Atria" class="logo-img"></div>
-        <nav class="nav-menu" aria-label="Navegação principal">
-            <button class="nav-btn active" data-route="home">Home</button>
-            <button class="nav-btn" data-route="cat">CAT</button>
-            <button class="nav-btn" data-route="riscos">Riscos</button>
-            <button class="nav-btn" data-route="hub">Conexões</button>
-            <button class="nav-btn" data-route="esg">ESG</button>
+        <div class="sidebar__marca"><img src="/img/Logo.png" alt="Atria" class="sidebar__logo"></div>
+        <nav aria-label="Navegação principal">
+            <ul class="menu" id="menu"></ul>
         </nav>
-        <div class="nav-footer"><button class="nav-btn profile-btn" type="button">Perfil</button></div>
+        <p class="sidebar__rodape" id="nome-loja"></p>
     </aside>
-
-    <main class="main-content">
-        <section id="home" class="view-section">
-            <div class="stats-grid" id="dashboard-stats"></div>
-
-            <div class="panel grey-panel mb-2">
-                <div class="panel-header"><h3>Quadro de avisos (risco e prazos)</h3></div>
-                <div class="alerts-container" id="home-alerts"></div>
-            </div>
-
-            <div class="panel grey-panel mb-2">
-                <h3 class="mb-1">Central de atendimento ao titular</h3>
-                <div class="search-box-standalone">
-                    <span class="search-icon">🔍</span>
-                    <input type="search" id="home-search-input" placeholder="Buscar titular por nome, CPF ou e-mail..." autocomplete="off">
-                </div>
-                <div id="home-search-results" class="clients-list-figma mt-1 hidden"></div>
-            </div>
-
-            <div class="dashboard-panels">
-                <div class="panel grey-panel">
-                    <h3 class="mb-2">Gerar Relatórios</h3>
-                    <div class="report-row"><span>Relatório ESG</span><button class="btn-report" data-report="esg">Baixar</button></div>
-                    <div class="report-row"><span>Relatório ANPD</span><button class="btn-report" data-report="anpd">Baixar</button></div>
-                    <div class="report-row"><span>Diferencial Comercial</span><button class="btn-report" data-report="comercial">Baixar</button></div>
-                    <p class="api-note">Os downloads já passam pelo backend Spring Boot.</p>
-                </div>
-                <div class="panel grey-panel calendar-panel">
-                    <div class="calendar-header">
-                        <span class="calendar-title" id="calendar-month-year"></span>
-                        <div class="calendar-arrows"><button class="btn-icon-text" id="calendar-prev">&lt;</button><button class="btn-icon-text" id="calendar-next">&gt;</button></div>
-                    </div>
-                    <div class="calendar-days-grid" id="calendar-days"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="cat" class="view-section hidden">
-            <div id="cat-main-view">
-                <h1 class="page-title">Central de atendimento ao titular</h1>
-                <div class="search-container">
-                    <div class="search-box"><span class="search-icon">🔍</span><input type="search" id="cat-search" placeholder="Buscar por nome, CPF ou e-mail..."></div>
-                    <button class="btn-filter" id="cat-search-button">Buscar</button>
-                </div>
-                <div class="panel grey-panel">
-                    <h3 class="mb-2">Lista de clientes</h3>
-                    <div class="clients-list-figma" id="cat-client-list"></div>
-                </div>
-            </div>
-
-            <div id="cat-detail-view" class="hidden">
-                <div class="detail-header-row mb-1"><h1 class="page-title">Perfil de Cliente</h1><button class="btn-report" id="cat-back">Voltar</button></div>
-                <div class="profile-purple-banner mb-2">
-                    <div class="banner-avatar-container"><div class="banner-avatar-circle"></div></div>
-                    <div class="banner-grid-info" id="client-profile-info"></div>
-                </div>
-                <div class="detail-split-grid">
-                    <div class="panel grey-panel">
-                        <h3 class="mb-1">Dados detectados por plataforma</h3>
-                        <p class="text-sm mb-2">Plataformas em que foram localizados dados do titular:</p>
-                        <div id="client-platforms"></div>
-                    </div>
-                    <div class="panel grey-panel flex-between-column">
-                        <div><h3 class="mb-2">Histórico de interação</h3><div id="client-interactions"></div></div>
-                        <div class="width-full mt-2">
-                            <button class="btn-danger-large-figma" id="btn-purga">Deletar todos os dados</button>
-                            <div id="receipt-area" class="hidden mt-1"><p class="success-text text-center" id="receipt-message"></p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="riscos" class="view-section hidden">
-            <h1 class="page-title">Riscos e Prazos</h1>
-            <div class="panel grey-panel mb-2">
-                <div class="search-container"><div class="search-box"><span class="search-icon">🔍</span><input type="search" id="risk-search" placeholder="Buscar na lista de riscos..."></div><button class="btn-filter" id="risk-filter">Filtrar</button></div>
-                <div class="alerts-container" id="risk-alerts"></div>
-            </div>
-            <div class="dashboard-panels">
-                <div class="panel grey-panel status-card-centered">
-                    <div class="panel-header-flex width-full"><h3>Status de Exposição ANPD</h3></div>
-                    <div class="panel-column-body"><div class="compliance-circle-container"><div class="checkmark-circle-green">✓</div><span class="compliance-link-text" data-report="anpd">Baixar relatório</span><p class="text-sm" id="anpd-status"></p></div></div>
-                </div>
-                <div class="panel green-compliance-panel status-card-centered">
-                    <div class="panel-header-flex width-full"><h3 class="text-white">Riscos de Marketplace</h3></div>
-                    <div class="panel-column-body"><div class="compliance-circle-container"><div class="checkmark-circle-translucent">✓</div><p class="compliance-msg-text" id="marketplace-status"></p></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="hub" class="view-section hidden">
-            <h1 class="page-title">Hub de Conexões</h1>
-            <p class="subtitle">Plataformas conectadas ao seu comércio</p>
-            <div class="panel grey-panel connected-platforms-wrapper"><div id="connections-list"></div><div class="flex-center mt-2"><button class="btn-green-action" id="new-platform">Conectar nova plataforma</button></div></div>
-        </section>
-
-        <section id="esg" class="view-section hidden">
-            <h1 class="page-title">Painel de Evidências ESG</h1>
-            <div class="panel grey-panel mb-2">
-                <div class="panel-header-flex"><div><h3>Relatório de Governança (Pilar G)</h3><p class="text-sm">Demonstre conformidade ativa para parceiros comerciais.</p></div><button class="btn-report" data-report="esg">Gerar Relatório</button></div>
-            </div>
-            <div class="panel grey-panel">
-                <h3 class="mb-1">Histórico de purgas</h3>
-                <div class="esg-table-wrap"><table class="esg-table"><thead><tr><th>Data</th><th>CPF</th><th>Plataformas</th><th>Protocolo</th><th>Status</th></tr></thead><tbody id="esg-history"></tbody></table></div>
-            </div>
-        </section>
-    </main>
+    <main class="principal" id="app" tabindex="-1"></main>
 </div>
-<div class="toast-container" id="toast-container" aria-live="polite"></div>
-<script src="/js/app.js"></script>
+<div id="modais"></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script type="module" src="/js/main.js"></script>
 </body>
 </html>
